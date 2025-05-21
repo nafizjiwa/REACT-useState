@@ -47,7 +47,7 @@ Techniques to resolve the asynchronous issue </br>
             return (
                    <button onClick={handleClick}>  Increment  </button>
 ### EXAMPLE REACT APPLICATION COUNTER
-##### //App.js
+- ##### //App.js
 
           import React from 'react';
           import Counter from './components/Counter';
@@ -67,7 +67,7 @@ Techniques to resolve the asynchronous issue </br>
           
           export default App;
 
-##### //components/Counter.js
+- ##### //components/Counter.js
 
         import React, { useState, useEffect } from 'react';
 
