@@ -51,56 +51,46 @@ Techniques to resolve the asynchronous issue </br>
 ### EXAMPLE REACT APPLICATION COUNTER
 - ##### //App.js
 
-          import React from 'react';
-          import Counter from './components/Counter';
-          
-          function App() {
-              return (
-                  <div className="App">
-                      <header className="App-header">
-                          <h1 style={{ color: 'darkblue' }}>
-                              React Counter
-                          </h1>
-                          <Counter />
-                      </header>
-                  </div>
-              );
-          }
-          
-          export default App;
+         import React from 'react';
+         import HookCounter from './components/hookCounter';
+         function App() {
+            return (
+                    <div>
+                      <h1>React Counter Example</h1>
+                      <HookCounter />
+                    </div>
+                  );    
+            }
+        export default App;
 
 - ##### //components/Counter.js
 
-        import React, { useState, useEffect } from 'react';
-
-        const Counter = () => {
-            const [count, setCount] = useState(0);
-        
-            useEffect(() => {
-                console.log("Count updated:", count);
-            }, [count]);
-        
-            const incrementCount = () => {
+          import React, { useState } from 'react';
+            
+            function HookCounter() {
+              const initialCount = 0;
+              const [count, setCount] = useState(initialCount);
+            
+              const increment = () => {
                 setCount(prevCount => prevCount + 1);
-            };
-        
-            return (
+              };
+            
+              const decrement = () => {
+                setCount(prevCount => prevCount - 1);
+              };
+            
+              const reset = () => {
+                setCount(initialCount);
+              };
+            
+              return (
                 <div>
-                    <p>Count: {count}</p>
-                    <button
-                        onClick={incrementCount}
-                        style={{
-                            backgroundColor: 'green',
-                            border: '2px solid black',
-                            color: 'white',
-                            padding: '20px 40px',
-                            borderRadius: '20px'
-                        }}
-                    >
-                        Increment
-                    </button>
+                  <h1>Count: {count}</h1>
+                  <button onClick={increment}>Increment</button>
+                  <button onClick={decrement}>Decrement</button>
+                  <button onClick={reset}>Reset</button>
                 </div>
-            );
-        };
-        
-        export default Counter;
+              );
+            }
+            
+            export default HookCounter;
