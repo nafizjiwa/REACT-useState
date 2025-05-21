@@ -23,6 +23,7 @@ Techniques to resolve the asynchronous issue </br>
    - How? Monitors state change so code can be run in response to that state change
    - Action? Logging, Fetching data, or updating the DOM based on the new state
 
+
       import React, { useState, useEffect } from 'react';
       const Counter = () => {
           const [count, setCount] = useState(0);
