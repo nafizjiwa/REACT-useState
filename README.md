@@ -24,22 +24,23 @@ Techniques to resolve the asynchronous issue </br>
    - Action? Logging, Fetching data, or updating the DOM based on the new state
 
 
-      import React, { useState, useEffect } from 'react';
-      const Counter = () => {
-          const [count, setCount] = useState(0);
-      
-          useEffect(() => { console.log("Count updated:", count); }, [count]);
-                   ***** HERE: useEffect logs the new count value whenever [count] changes ******
-      
-          const incrementCount = () => { setCount(count + 1); };
-      
-          return (
-              <div>
-                  <p>Count: {count}</p>
-                  <button onClick={incrementCount}> Increment </button>
-              </div>  );
-      };
-      export default Counter;
+          import React, { useState, useEffect } from 'react';
+          const Counter = () => {
+              const [count, setCount] = useState(0);
+          
+              useEffect(() => { console.log("Count updated:", count); }, [count]);
+                       ***** HERE: useEffect logs the new count value whenever [count] changes ******
+          
+              const incrementCount = () => { setCount(count + 1); };
+          
+              return (
+                  <div>
+                      <p>Count: {count}</p>
+                      <button onClick={incrementCount}> Increment </button>
+                  </div>  );
+          };
+          export default Counter;
+
    
 #### 3. Triggering Updates Correctly: Pass the correct value to the update function.
    - handleClick function directly calls setCount with count + 1.
